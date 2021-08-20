@@ -1,0 +1,25 @@
+:root{
+    --primary-dark: #047857;
+    --primary-light: #A7F3D0;
+}
+
+body {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+    text-align: center;
+}
+
+input,
+label{
+    display:block;
+    margin:auto;
+    padding: 0.5rem;
+}
+#check-button{
+    padding: 0.2rem;
+    width: 20%;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
