@@ -1,30 +1,30 @@
 const dateOfBirth = document.querySelector("#date-of-birth");
 const luckyNumber = document.querySelector("#lucky-number");
 const checkButton = document.querySelector("#check-button");
-const errorMessage = document.querySelector("#error-message")
+const outputDiv = document.querySelector("#output");
 
-checkButton.addEventListener("click", isBirthdateLucky);
+checkButton.addEventListener("click",checkBirthdateIsLucky);
 
-function isBirthdateLucky (){
-    const dob= dateOfBirth.value;
-    const sum= calculateSum(dob);
+function checkBirthdateIsLucky(){
+    const dob = dateOfBirth.value;
+    const sum = calculateSum(dob);
     compareValues(sum,luckyNumber.value);
+}
+
+function calculateSum(dob){
+    dob = dob.replaceAll("-","");
+    let sum=0;
+    for(index=0;index<dob.length;index++){
+        sum = sum + Number(dob.charAt(index));
+    }
+    return sum;
 }
 
 function compareValues(sum,luckyNumber){
     if(sum%luckyNumber===0){
-        errorMessage.innerText="Yipiiee!! your birthday is lucky!!🤩"
+        outputDiv.innerText="Yay!! your birthday is lucky🥳"
     }
     else{
-        errorMessage.innerText = "Ohh nooo!! your birthday is not lucky!!🙁"
+        outputDiv.innerText="Ohh no!! your birthday is not so lucky😒"
     }
-}
-
-function calculateSum(dob){
-  dob= dob.replaceAll("-","");
-  let sum=0;
-  for(let index=0; index<dob.length;index++){
-      sum = sum+ Number(dob.charAt(index));
-  }
-  return sum;
 }
